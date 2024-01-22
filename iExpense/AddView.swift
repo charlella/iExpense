@@ -16,8 +16,9 @@ struct AddView: View {
     
     var expenses: Expenses
 
-    
     let types = ["Business", "Personal"]
+    let localCurrency = Locale.current.currency?.identifier ?? "USD"
+
     
     var body: some View {
         NavigationStack {

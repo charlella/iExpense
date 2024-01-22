@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA52C3742B5EBFA600FCCEAB /* View-ExpenseStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA52C3732B5EBFA600FCCEAB /* View-ExpenseStyle.swift */; };
+		BA52C3762B5EC40800FCCEAB /* ExpenseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA52C3752B5EC40800FCCEAB /* ExpenseSection.swift */; };
 		BAB859052B5EA0F300A14504 /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB859042B5EA0F300A14504 /* iExpenseApp.swift */; };
 		BAB859072B5EA0F300A14504 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB859062B5EA0F300A14504 /* ContentView.swift */; };
 		BAB859092B5EA0F600A14504 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAB859082B5EA0F600A14504 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA52C3732B5EBFA600FCCEAB /* View-ExpenseStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-ExpenseStyle.swift"; sourceTree = "<group>"; };
+		BA52C3752B5EC40800FCCEAB /* ExpenseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSection.swift; sourceTree = "<group>"; };
 		BAB859012B5EA0F300A14504 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB859042B5EA0F300A14504 /* iExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iExpenseApp.swift; sourceTree = "<group>"; };
 		BAB859062B5EA0F300A14504 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +41,8 @@
 		BAB858F82B5EA0F300A14504 = {
 			isa = PBXGroup;
 			children = (
+				BA52C3752B5EC40800FCCEAB /* ExpenseSection.swift */,
+				BA52C3732B5EBFA600FCCEAB /* View-ExpenseStyle.swift */,
 				BAB859032B5EA0F300A14504 /* iExpense */,
 				BAB859022B5EA0F300A14504 /* Products */,
 			);
@@ -141,8 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAB859072B5EA0F300A14504 /* ContentView.swift in Sources */,
+				BA52C3762B5EC40800FCCEAB /* ExpenseSection.swift in Sources */,
 				BAB859052B5EA0F300A14504 /* iExpenseApp.swift in Sources */,
 				BAE20EEC2B5EB16A00CF8891 /* AddView.swift in Sources */,
+				BA52C3742B5EBFA600FCCEAB /* View-ExpenseStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
