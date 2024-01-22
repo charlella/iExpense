@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F92F2EBB-6FCB-4285-A3A4-3488C2600F04"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2490766D-3B41-406C-A316-746616A1427C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iExpense/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "Expenses"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "2490766D-3B41-406C-A316-746616A1427C - a78c68dee88e6470"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iExpense.Expenses.deinit"
+                  moduleName = "iExpense"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/charlenehoareau/Desktop/CODING/100Days/iExpense/iExpense/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "2490766D-3B41-406C-A316-746616A1427C - 7cfbab0bbefba59d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iExpense.Expenses.__deallocating_deinit"
+                  moduleName = "iExpense"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/charlenehoareau/Desktop/CODING/100Days/iExpense/iExpense/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "2490766D-3B41-406C-A316-746616A1427C - 6a4d0bea6d9dc2ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iExpense.Expenses.__allocating_init() -&gt; iExpense.Expenses"
+                  moduleName = "iExpense"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/charlenehoareau/Desktop/CODING/100Days/iExpense/iExpense/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "2490766D-3B41-406C-A316-746616A1427C - ac53bede27b1b243"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iExpense.Expenses.init() -&gt; iExpense.Expenses"
+                  moduleName = "iExpense"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/charlenehoareau/Desktop/CODING/100Days/iExpense/iExpense/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
