@@ -12,7 +12,8 @@ struct ExpenseSection: View {
     let expenses: [ExpenseItem]
     let deleteItem: (IndexSet) -> Void
     
-    let localCurrency = Locale.current.currency?.identifier ?? "USD"
+    let localCurrency = "EUR"
+   // let localCurrency = Locale.current.currency?.identifier ?? "USD"
 
     
     var body: some View {

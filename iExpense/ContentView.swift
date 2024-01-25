@@ -24,12 +24,12 @@ class Expenses: ObservableObject {
     }
     
     var personalItems: [ExpenseItem] {
-            items.filter { $0.type == "Personal" }
-        }
-
-        var businessItems: [ExpenseItem] {
-            items.filter { $0.type == "Business" }
-        }
+        items.filter { $0.type == "Personal" }
+    }
+    
+    var businessItems: [ExpenseItem] {
+        items.filter { $0.type == "Business" }
+    }
     
     init() {
         if let savedItems = UserDefaults.standard.data(forKey: "Items") {
@@ -38,54 +38,50 @@ class Expenses: ObservableObject {
                 return
             }
         }
-
+        
         items = []
     }
 }
 
 struct ContentView: View {
     @ObservedObject private var expenses = Expenses()
-    
     @State private var showingAddExpense = false
     
     var body: some View {
         NavigationView {
             List {
-                ExpenseSection(title: "Business", expenses: expenses.businessItems, deleteItem: removeBusinessItems)
-                ExpenseSection(title: "Personal", expenses: expenses.personalItems, deleteItem: removePersonalItems)
+                Section(header: Text("Business")) {
+                    ExpenseSection(title: "Business", expenses: expenses.businessItems) { indexSet in
+                        removeBusinessItems(at: indexSet)
+                    }
+                }
+                
+                Section(header: Text("Personal")) {
+                    ExpenseSection(title: "Personal", expenses: expenses.personalItems) { indexSet in
+                        removePersonalItems(at: indexSet)
+                    }
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
-                Button("Add Expense", systemImage: "plus") {
-                    showingAddExpense = true
-//                    let expense = ExpenseItem(name: "test", type: "Personal", amount: 5)
-//                    expenses.items.append(expense)
+                NavigationLink {
+                    AddView(expenses: expenses)
+                } label: {
+                    Label("Add Expense", systemImage: "plus")
                 }
-            }
-            .sheet(isPresented: $showingAddExpense) {
-                AddView(expenses: expenses)
             }
         }
     }
-
+    
     func removeItems(at offsets: IndexSet, in inputArray: [ExpenseItem]) {
-        var objectsToDelete = IndexSet()
-
-        for offset in offsets {
-            let item = inputArray[offset]
-
-            if let index = expenses.items.firstIndex(of: item) {
-                objectsToDelete.insert(index)
-            }
-        }
-
-        expenses.items.remove(atOffsets: objectsToDelete)
+        let itemsToRemove = offsets.map { inputArray[$0] }
+        expenses.items.removeAll { itemsToRemove.contains($0) }
     }
     
     func removePersonalItems(at offsets: IndexSet) {
         removeItems(at: offsets, in: expenses.personalItems)
     }
-
+    
     func removeBusinessItems(at offsets: IndexSet) {
         removeItems(at: offsets, in: expenses.businessItems)
     }
