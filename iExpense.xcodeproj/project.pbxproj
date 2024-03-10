@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA05A6F52B9DCC7400C8CCBC /* ExpensesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA05A6F42B9DCC7400C8CCBC /* ExpensesList.swift */; };
 		BA52C3742B5EBFA600FCCEAB /* View-ExpenseStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA52C3732B5EBFA600FCCEAB /* View-ExpenseStyle.swift */; };
 		BA52C3762B5EC40800FCCEAB /* ExpenseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA52C3752B5EC40800FCCEAB /* ExpenseSection.swift */; };
 		BAB859052B5EA0F300A14504 /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB859042B5EA0F300A14504 /* iExpenseApp.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA05A6F42B9DCC7400C8CCBC /* ExpensesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesList.swift; sourceTree = "<group>"; };
 		BA52C3732B5EBFA600FCCEAB /* View-ExpenseStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View-ExpenseStyle.swift"; sourceTree = "<group>"; };
 		BA52C3752B5EC40800FCCEAB /* ExpenseSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseSection.swift; sourceTree = "<group>"; };
 		BAB859012B5EA0F300A14504 /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 			children = (
 				BAB859042B5EA0F300A14504 /* iExpenseApp.swift */,
 				BAB859062B5EA0F300A14504 /* ContentView.swift */,
+				BA05A6F42B9DCC7400C8CCBC /* ExpensesList.swift */,
 				BAE20EEB2B5EB16900CF8891 /* AddView.swift */,
 				BAB859082B5EA0F600A14504 /* Assets.xcassets */,
 				BAB8590A2B5EA0F600A14504 /* Preview Content */,
@@ -150,6 +153,7 @@
 				BA52C3762B5EC40800FCCEAB /* ExpenseSection.swift in Sources */,
 				BAB859052B5EA0F300A14504 /* iExpenseApp.swift in Sources */,
 				BAE20EEC2B5EB16A00CF8891 /* AddView.swift in Sources */,
+				BA05A6F52B9DCC7400C8CCBC /* ExpensesList.swift in Sources */,
 				BA52C3742B5EBFA600FCCEAB /* View-ExpenseStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

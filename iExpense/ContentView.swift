@@ -4,90 +4,92 @@
 //
 //  Created by charlene hoareau on 22/01/2024.
 //
-
+import SwiftData
 import SwiftUI
 
-struct ExpenseItem: Identifiable, Codable, Equatable {
-    var id = UUID()
+@Model
+class ExpenseItem {
     let name: String
     let type: String
     let amount: Double
-}
-
-class Expenses: ObservableObject {
-    @Published var items = [ExpenseItem]() {
-        didSet {
-            if let encoded = try? JSONEncoder().encode(items) {
-                UserDefaults.standard.set(encoded, forKey: "Items")
-            }
-        }
-    }
     
-    var personalItems: [ExpenseItem] {
-        items.filter { $0.type == "Personal" }
-    }
-    
-    var businessItems: [ExpenseItem] {
-        items.filter { $0.type == "Business" }
-    }
-    
-    init() {
-        if let savedItems = UserDefaults.standard.data(forKey: "Items") {
-            if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
-                items = decodedItems
-                return
-            }
-        }
-        
-        items = []
+    init(name: String, type: String, amount: Double) {
+        self.name = name
+        self.type = type
+        self.amount = amount
     }
 }
 
 struct ContentView: View {
-    @ObservedObject private var expenses = Expenses()
     @State private var showingAddExpense = false
+    @State private var expenseType = "All"
+    
+    @State private var sortOrder = [
+        SortDescriptor(\ExpenseItem.name),
+        SortDescriptor(\ExpenseItem.amount)
+    ]
     
     var body: some View {
         NavigationView {
-            List {
-                Section(header: Text("Business")) {
-                    ExpenseSection(title: "Business", expenses: expenses.businessItems) { indexSet in
-                        removeBusinessItems(at: indexSet)
+            ExpensesList(type: expenseType, sortOrder: sortOrder)
+                .navigationTitle("iExpense")
+                .toolbar {
+                    Button("Add Expense", systemImage: "plus") {
+                        showingAddExpense = true
+                    }
+                    
+                    Menu("Filter", systemImage: "line.3.horizontal.decrease.circle") {
+                        Picker("Filter", selection: $expenseType) {
+                            Text("Show All Expenses")
+                                .tag("All")
+                            
+                            Divider()
+                            
+                            ForEach(AddView.types, id: \.self) { type in
+                                Text(type)
+                                    .tag(type)
+                            }
+                        }
+                    }
+                    
+                    Menu("Sort", systemImage: "arrow.up.arrow.down") {
+                        Picker("Sort By", selection: $sortOrder) {
+                            Text("Name A-Z")
+                                .tag([
+                                    SortDescriptor(\ExpenseItem.name),
+                                    SortDescriptor(\ExpenseItem.amount)
+                                ])
+                            
+                            Text("Name Z-A")
+                                .tag([
+                                    SortDescriptor(\ExpenseItem.name, order: .reverse),
+                                    SortDescriptor(\ExpenseItem.amount)
+                                ])
+                            
+                            Text("Amount (Cheapest First)")
+                                .tag([
+                                    SortDescriptor(\ExpenseItem.amount),
+                                    SortDescriptor(\ExpenseItem.name)
+                                ])
+                            
+                            Text("Amount (Most Expensive First)")
+                                .tag([
+                                    SortDescriptor(\ExpenseItem.amount, order: .reverse),
+                                    SortDescriptor(\ExpenseItem.name)
+                                ])
+                            
+                        }
+                    }
+                    .sheet(isPresented: $showingAddExpense) {
+                        AddView()
                     }
                 }
-                
-                Section(header: Text("Personal")) {
-                    ExpenseSection(title: "Personal", expenses: expenses.personalItems) { indexSet in
-                        removePersonalItems(at: indexSet)
-                    }
-                }
-            }
-            .navigationTitle("iExpense")
-            .toolbar {
-                NavigationLink {
-                    AddView(expenses: expenses)
-                } label: {
-                    Label("Add Expense", systemImage: "plus")
-                }
-            }
         }
-    }
-    
-    func removeItems(at offsets: IndexSet, in inputArray: [ExpenseItem]) {
-        let itemsToRemove = offsets.map { inputArray[$0] }
-        expenses.items.removeAll { itemsToRemove.contains($0) }
-    }
-    
-    func removePersonalItems(at offsets: IndexSet) {
-        removeItems(at: offsets, in: expenses.personalItems)
-    }
-    
-    func removeBusinessItems(at offsets: IndexSet) {
-        removeItems(at: offsets, in: expenses.businessItems)
     }
 }
 
 
 #Preview {
     ContentView()
+        .modelContainer(for: ExpenseItem.self)
 }
